@@ -1,0 +1,61 @@
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10">
+    <br />
+    <form (ngSubmit)="buscar()" [formGroup]="miFormulario">
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Busqueda por</mat-label>
+        <mat-select formControlName="select" >
+          <mat-option value="id"> ID </mat-option>
+          <mat-option value="texto"> Texto </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Buscar</mat-label>
+        <input type="text" matInput formControlName="busqueda" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="btnFiltro" type="submit">
+        Filtrar
+      </button>
+      <button
+        mat-raised-button
+        color="warn"
+        class="btnFiltro"
+        *ngIf="filtrado"
+        (click)="eliminarFiltro()"
+      >
+        Eliminar filtro
+      </button>
+    </form>
+
+    <span *ngIf="errorBusqueda" class="errorBusqueda"> {{errorBusqueda}}</span>
+
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <mat-paginator
+    [length]="listadoImagenes.length"
+    [pageSize]="page_size"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="handlePage($event)"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="20" fxLayoutAlign="center">
+  <div
+    fxFlex.xs="60"
+    fxFlex.sm="35"
+    fxFlex.md="25"
+    fxFlex="20"
+    fxFlex.gt-lg="15"
+    *ngFor="let imagen of imagenesMostradas | paginate: page_size:page_number"
+  >
+    <app-card [imagen]="imagen"></app-card>
+  </div>
+</div>

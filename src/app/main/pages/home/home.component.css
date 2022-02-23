@@ -1,0 +1,18 @@
+.container{
+  margin: 10px;
+}
+.btnFiltro{
+  margin-bottom:10px;
+  margin-right: 5px;
+}
+mat-form-field{
+  margin-right: 10px;
+}
+
+*{
+  word-break: break-word;
+}
+
+.errorBusqueda{
+  color:red;
+}
