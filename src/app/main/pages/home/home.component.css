@@ -9,10 +9,6 @@ mat-form-field{
   margin-right: 10px;
 }
 
-*{
-  word-break: break-word;
-}
-
 .errorBusqueda{
   color:red;
 }

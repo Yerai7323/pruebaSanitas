@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 import { map } from 'rxjs';
-import { Imagen } from '../../interfaces/imagen.interface';
+import { Imagen } from 'src/app/shared/interfaces/imagen.interface';
 import { MainService } from '../../services/main.service';
 
 @Component({
@@ -27,24 +27,23 @@ export class HomeComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
     select: ['id', [Validators.required] ],
-    busqueda: ['', [Validators.minLength(1)] ],
+    busqueda: ['', [ Validators.required, Validators.minLength(1)] ],
   });
 
   constructor(private mainService: MainService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.getImagenes(this.pagina);
+    this.getImagenes();
   }
 
-  getImagenes(pagina: number) {
-    this.mainService
-      .getImagenes(pagina)
-      .pipe(
-      /* map( imagenes => {
+  getImagenes() {
+    this.mainService.getImagenes()
+      /*.pipe(
+       map( imagenes => {
         imagenes.forEach( imagen => {imagen.text = `texto_${imagen.id}`} )
         return imagenes
-      }) */
-      )
+      }) 
+      )*/
       .subscribe((result) => {
         (this.listadoImagenes = result.sort(() => {
           return Math.random() - 0.5;

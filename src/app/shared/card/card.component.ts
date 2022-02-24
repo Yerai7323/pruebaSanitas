@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Imagen } from 'src/app/main/interfaces/imagen.interface';
+import { Imagen } from '../interfaces/imagen.interface';
+
 
 @Component({
   selector: 'app-card',
@@ -10,6 +11,7 @@ export class CardComponent implements OnInit {
 
 
   @Input() imagen!: Imagen;
+  
   constructor() { }
 
   ngOnInit(): void {

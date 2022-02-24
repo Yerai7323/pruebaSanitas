@@ -2,7 +2,10 @@ img {
     width: 100%;
     object-fit: cover;
     margin-left:0;
-  }
-  mat-card{
-      margin-bottom: 10px;
-  }
+}
+mat-card{
+    margin-bottom: 10px;
+}
+.text{
+    word-break: break-word;
+}
