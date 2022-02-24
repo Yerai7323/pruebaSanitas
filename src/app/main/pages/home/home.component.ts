@@ -18,8 +18,6 @@ export class HomeComponent implements OnInit {
   public errorBusqueda: string = '';
   public selectedOption: string = 'id';
 
-
-
   //paginator
   page_size = 10;
   page_number = 1;
@@ -57,7 +55,7 @@ export class HomeComponent implements OnInit {
     this.page_number = e.pageIndex + 1;
   }
 
-
+  trackByImagenes( index: number, item: Imagen): number { return item.id }
 
   buscar(){
 

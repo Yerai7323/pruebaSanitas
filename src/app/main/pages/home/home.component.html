@@ -54,7 +54,7 @@
     fxFlex.md="25"
     fxFlex="20"
     fxFlex.gt-lg="15"
-    *ngFor="let imagen of imagenesMostradas | paginate: page_size:page_number"
+    *ngFor="let imagen of imagenesMostradas | paginate: page_size:page_number; trackBy:trackByImagenes"
   >
     <app-card [imagen]="imagen"></app-card>
   </div>
